@@ -8,9 +8,9 @@ export default function Signup() {
   const nav = useNavigate();
 
   const signup = async () => {
-    if (!form.email || !form.password || !form.name) {
+    if (!form.name || !form.email || !form.password) {
       alert("All fields are required");
-      return_attach;
+      return; // ✅ FIXED HERE
     }
 
     try {
@@ -38,24 +38,18 @@ export default function Signup() {
 
       <input
         placeholder="Name"
-        onChange={(e) =>
-          setForm({ ...form, name: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
       />
 
       <input
         placeholder="Email"
-        onChange={(e) =>
-          setForm({ ...form, email: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
 
       <input
         placeholder="Password"
         type="password"
-        onChange={(e) =>
-          setForm({ ...form, password: e.target.value })
-        }
+        onChange={(e) => setForm({ ...form, password: e.target.value })}
       />
 
       <button onClick={signup}>Register</button>
