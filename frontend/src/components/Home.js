@@ -5,7 +5,7 @@ export default function Home() {
   const [invoices, setInvoices] = useState([])
   const [filter, setFilter] = useState("")
   const nav = useNavigate()
-
+  
   useEffect(() => {
     fetch("http://localhost:5000/invoices")
       .then(res => res.json())
