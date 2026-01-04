@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Backend URL (works in local + production)
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function Login() {
@@ -28,12 +27,8 @@ export default function Login() {
       });
 
       if (res.ok) {
-        // ✅ Save login state
+       
         localStorage.setItem("isLoggedIn", "true");
-
-        // (Optional) Save user data/token
-        // const data = await res.json();
-        // localStorage.setItem("token", data.token);
 
         nav("/home", { replace: true });
       } else {
